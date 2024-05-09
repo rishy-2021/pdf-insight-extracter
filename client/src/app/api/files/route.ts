@@ -10,8 +10,6 @@ export interface FetchedFile {
 export async function GET(request: Request) {
   const namespaceId = new URL(request.url).searchParams.get("namespaceId");
 
-  console.log("GET request to fetch files for namespace:", namespaceId);
-
   if (typeof namespaceId !== "string") {
     throw new Error("Invalid or missing namespace ID in request URL");
   }

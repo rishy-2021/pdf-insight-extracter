@@ -23,14 +23,14 @@ export default function NewPage() {
   }, []);
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if(e.target.files){
-        const file = e.target.files[0];
+    if (e.target.files) {
+      const file = e.target.files[0];
 
-        if(validFileTypes.includes(file.type)){
-            setSelectedFiles(file);
-        } else {
-                alert("Please select PDF or Text files only.");
-        }
+      if (validFileTypes.includes(file.type)) {
+        setSelectedFiles(file);
+      } else {
+        alert("Please select PDF or Text files only.");
+      }
     }
   };
 
@@ -95,9 +95,7 @@ export default function NewPage() {
           />
           <div className="flex justify-between items-center pb-4 mb-4 border-b border-gray-300">
             <span className="text-lg text-gray-600">
-              {selectedFiles
-                ? `${selectedFiles.name}`
-                : "Add .pdf file..."}
+              {selectedFiles ? `${selectedFiles.name}` : "Add .pdf file..."}
             </span>
             <label
               htmlFor="fileInput"
