@@ -3,7 +3,7 @@ import { useChat } from "ai/react";
 import { ChatMessage } from "./chat-message";
 import { Workspace } from "@/lib/hooks/workspace-chat-context";
 import { PromptGrid } from "../ui/prompt-grid";
-import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import FileCard from "../ui/file-card";
 import { FetchedFile } from "@/app/api/files/route";
 
@@ -30,36 +30,39 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
   const [files, setFiles] = useState<FetchedFile[]>([]);
   const [fetchingFiles, setFetchingFiles] = useState(true);
 
-  const [prompts, setPrompts] = useState<Prompt[]>([
+  const prompts = useMemo<Prompt[]>(()=> {
+
+   return [
     {
       id: "1",
-      name: `Tell me about the content in the \"${workspace.name}\" workspace`,
+      name: `Tell me about the content in the \"${files[0]?.name.slice(0,14)}\" file`,
       description: "",
-      content: `Tell me about the content in the \"${workspace.name}\" workspace`,
+      content: `Tell me about the content in the \"${files[0]?.name}\" file`,
       folderId: null,
     },
     {
       id: "2",
-      name: `Give me some quotes about \"${workspace.name}\" from the content.`,
+      name: `Summery of the given content in the \"${files[0]?.name.slice(0,14)}...\" file.`,
       description: "",
-      content: `Give me some quotes about \"${workspace.name}\" from the content.`,
+      content: `Summery of the given content in the \"${files[0]?.name}\" file.`,
       folderId: null,
     },
     {
       id: "3",
-      name: `Write me an essay about \"${workspace.name}\" from the content.`,
+      name: `Tell me more about yourself`,
       description: "",
-      content: `Write me an essay about \"${workspace.name}\" from the content.`,
+      content: `Tell me more about yourself`,
       folderId: null,
     },
     {
       id: "4",
-      name: `Tell me something I might not know about \"${workspace.name}\"`,
+      name: `Tell me something I might not know about you`,
       description: "",
-      content: `Tell me something I might not know about \"${workspace.name}\"`,
+      content: `Tell me something I might not know about you`,
       folderId: null,
     },
-  ]);
+  ]
+},[fetchingFiles]);
 
   const [activePromptIndex, setActivePromptIndex] = useState<number>(0);
   const promptListRef = useRef<HTMLDivElement | null>(null);
@@ -115,7 +118,6 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
         )}
         <div className={documentTrayIsOpen ? "h-[70%]" : "h-1/3"}></div>
       </div>
-
       {messages.length === 0 && (
         <div className="relative flex flex-col items-center justify-center h-full">
           {!fetchingFiles &&

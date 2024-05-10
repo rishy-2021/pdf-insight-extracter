@@ -26,7 +26,7 @@ export const PromptGrid: FC<Props> = ({
           className={`${index === activePromptIndex
               ? 'bg-gray-200'
               : ''
-            } cursor-pointer py-4 transition duration-200 ease-in-out hover:bg-slate-50 rounded-md top-2 left-0 z-10 px-10
+            } cursor-pointer py-4 transition duration-200 flex items-center justify-center ease-in-out hover:bg-slate-50 rounded-md top-2 left-0 z-10 px-10
            bg-white/30 border backdrop-blur-sm shadow-sm`}
           onClick={(e) => {
             e.preventDefault();
@@ -35,7 +35,7 @@ export const PromptGrid: FC<Props> = ({
           }}
           onMouseEnter={() => onMouseOver(index)}
         >
-          <p className="text-md font-normal text-sm mb-2 text-gray-500">{prompt.name}</p>
+          <p className="text-md font-normal text-center text-sm mb-2 text-gray-500">{prompt.name}</p>
         </div>
       ))}
     </div>

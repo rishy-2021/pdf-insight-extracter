@@ -136,6 +136,9 @@ export default function NewPage() {
           )}
         </form>
       </div>
+      <div className="text-orange-500">
+        <p>( Please use Pdf files which contain decent amount of text )</p>
+        </div>
     </div>
   );
 }
