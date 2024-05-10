@@ -154,7 +154,6 @@ class DocumentsController {
       let files;
 
       files = await storageService.listFilesInNamespace(namespaceId);
-      console.log("Files from storage:", files);
 
       res.json(files);
     } catch (error) {

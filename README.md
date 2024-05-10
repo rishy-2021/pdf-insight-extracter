@@ -75,7 +75,7 @@ npm run start
 
 ## Project structure
 
-![image](https://github.com/pinecone-io/sample-apps/assets/24496327/5f13972f-386d-4a04-84f7-6e89cb95f124)
+![image](https://raw.githubusercontent.com/rishy-2021/pdf-insight-extracter/master/server/public/program-flow.jpg)
 
 In this example we opted to use a simple client/server structure.
 

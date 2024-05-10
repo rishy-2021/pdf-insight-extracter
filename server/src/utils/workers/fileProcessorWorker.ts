@@ -10,8 +10,6 @@ async function processFileWorker() {
       fileType
     );
 
-    console.log(documentContent)
-
     const { document } = await chunkAndEmbedFile(
       documentId,
       documentUrl,
