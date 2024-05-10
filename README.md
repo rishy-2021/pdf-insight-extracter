@@ -2,7 +2,7 @@
 ### Multi-tenant Chat app to extract insights from your PDFs
 Unleash the power of conversational AI with your own documents
 
-![image](https://github.com/pinecone-io/sample-apps/assets/24496327/df2c4281-893c-4ce5-ac36-101f4a076d6c)
+![image](https://raw.githubusercontent.com/rishy-2021/pdf-insight-extracter/master/server/public/demo.png)
 
 
 ### Built With
@@ -73,9 +73,18 @@ Start the server.
 npm run start
 ```
 
+## Resources
+
+Special thanks to 'Roie Schwaber-Cohen' for providing me wonderfull article embeddings and vector databases which helps me building this project.
+
+[Retrieval Augmented Generation (RAG) with Pinecone and Vercel's AI SDK](https://github.com/rishy-2021/pdf-insight-extracter/), or DM me [LinkedIn](https://www.linkedin.com/in/ritesh-purwar/)!
+
+[Building a Image Recognition App in Javascript using Pinecone, Hugging Face, and Vercel](https://www.pinecone.io/learn/pinecone-vision-app/)
+
+
 ## Project structure
 
-![image](https://raw.githubusercontent.com/rishy-2021/pdf-insight-extracter/master/server/public/program-flow.jpg)
+![image](https://raw.githubusercontent.com/rishy-2021/pdf-insight-extracter/master/server/public/program-flow%20.jpg)
 
 In this example we opted to use a simple client/server structure.
 
@@ -179,11 +188,7 @@ This comes in handy for targeted document updates and deletions.
 Lastly, we upsert our embeddings to the Pinecone Namespace associated with the tenant in the form of a `PineconeRecord`.
 This allows us to provide the reference text and url as metadata for use by our retreival system.
 ```typescript
-  /**
-   * Upserts a document into the specified Pinecone namespace.
-   * @param document - The document to upsert.
-   * @param namespaceId - The ID of the namespace.
-   */
+
   async upsertDocument(document: Document, namespaceId: string) {
     // Adjust to use namespaces if you're organizing data that way
     const namespace = index.namespace(namespaceId); // Adjust as necessary
