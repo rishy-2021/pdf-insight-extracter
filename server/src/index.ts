@@ -8,7 +8,7 @@ import documentRoutes from "./routes/documentRoutes";
 import contextRoutes from "./routes/contextRoutes";
 var memwatch = require("@airbnb/node-memwatch");
 
-const uploadsDir = path.join('/tmp', 'uploads');
+const uploadsDir = path.join(__dirname, "..", "uploads");
 
 if (process.env.NODE_ENV === "production") {
   console.log("Running in production mode");
