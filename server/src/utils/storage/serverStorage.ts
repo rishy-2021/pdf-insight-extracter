@@ -3,7 +3,8 @@ import path from "path";
 import { FileDetail, StorageService } from "./storage";
 
 export class ServerStorage implements StorageService {
-  private readonly uploadDir = "uploads";
+  // private readonly uploadDir = "uploads";
+  private readonly uploadDir = path.join('/tmp', 'uploads');
 
   async saveFile(file: Express.Multer.File, fileKey: string): Promise<void> {
     const [namespaceId, documentId, ...rest] = fileKey.split("/");

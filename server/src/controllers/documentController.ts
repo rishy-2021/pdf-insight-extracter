@@ -189,7 +189,7 @@ class DocumentsController {
     try {
 
       if (storageService instanceof ServerStorage) {
-        const filePath = path.join("uploads", fileKey);
+        const filePath = path.join("/tmp/uploads", fileKey);
         const files = fs.readdirSync(filePath);
         const firstFile = files[0];
         const fileFullPath = path.join(filePath, firstFile);
