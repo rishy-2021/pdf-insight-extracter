@@ -15,7 +15,7 @@
     "typeRoots": ["node_modules/@types", "@types"],
     "types": ["node"],
     "paths": {
-      "*": ["node_modules/*", "src/types/*"]
+      "*": ["node_modules/*", "src/types/*"] 
     }
   },
   "include": [
@@ -23,5 +23,6 @@
   ],
   "exclude": [
     "node_modules",
+    "dist" 
   ]
 }
