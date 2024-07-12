@@ -5,7 +5,6 @@ import { TbNotes } from 'react-icons/tb';
 import { FaPlus, FaLock, FaRecycle } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import { useWorkspaceChatContext, Workspace } from '@/lib/hooks/workspace-chat-context';
-import { SkeletonLoader } from './skeleton-loader';
 import { Tooltip } from './tooltip';
 
 const Sidenav: React.FC = () => {
@@ -24,13 +23,13 @@ const Sidenav: React.FC = () => {
   const sortedChats = workspaces.slice().sort((a, b) => Number(b.createdAt) - Number(a.createdAt));
 
   return (
-    <div className="flex flex-row w-fit !overflow-x-visible z-[100]">
+    <div className="flex flex-col md:flex-row lg:flex-row w-fit !overflow-x-visible z-[100]">
       <div
         className={`bg-white p-4 transition-all duration-500 ease-in-out border-r-1 shadow-lg !overflow-x-visible
-        ${isCollapsed ? 'w-16 max-w-[470px]' : 'max-w-[470px] w-[300px]'}
+        ${isCollapsed ? 'md:w-16 w-96 h-16 max-w-[470px] md:h-full' : 'max-w-[470px] w-96 md:w-[300px] h-[300px] md:h-full'}
         overflow-y-scroll no-scrollbar`}
       >
-        <div className={`flex mb-10 items-baseline ${isCollapsed ? 'flex-col gap-2' : 'flex-row'}`}>
+        <div className={`flex mb-3 md:mb-10 items-baseline ${isCollapsed ? 'md:flex-col gap-2' : 'md:flex-row'}`}>
           <div
             className={`flex items-center min-w-fit text-black no-underline rounded mb-2
             ${isCollapsed ? 'justify-center' : 'justify-start'}`}
@@ -42,11 +41,12 @@ const Sidenav: React.FC = () => {
             >
               <FaRecycle className={`${isCollapsed ? '' : 'mr-1'}`} size={"22"} />
             </Link>
-            <span className={`${isCollapsed ? 'hidden' : 'inline font-medium'}`}>Pdf Insights Extracter</span>
+            <span className={`${isCollapsed ? 'md:hidden' : 'inline font-medium'}`}>Pdf Insights Extracter</span>
           </div>
         </div>
 
-        <ul className="!overflow-visible">
+        <div>
+          <ul className='h-36 bg-red-200 overflow-scroll mb-5'>
               {sortedChats.map((workspace: Workspace) => {
                 if (!workspace) return null;
                 return (
@@ -59,6 +59,8 @@ const Sidenav: React.FC = () => {
                   />
                 );
               })}
+              </ul>
+              <ul>
           <SidenavItem
             title="Create Workspace"
             href="/"
@@ -67,7 +69,8 @@ const Sidenav: React.FC = () => {
             icon={<FaPlus className={`${isCollapsed ? '' : 'scale-75'} ${isActive('/') ? 'text-white' : 'text-[#1C17FF]'}`} />}
             animatedBorder
           />
-        </ul>
+          </ul>
+        </div>
       </div>
       <button
         onClick={toggleSidebar}
