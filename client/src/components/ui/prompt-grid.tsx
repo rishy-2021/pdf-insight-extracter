@@ -18,7 +18,7 @@ export const PromptGrid: FC<Props> = ({
   return (
     <div
       ref={promptListRef}
-      className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 border-black/10 "
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4 p-4 border-black/10 "
     >
       {prompts.map((prompt, index) => (
         <div
@@ -27,7 +27,7 @@ export const PromptGrid: FC<Props> = ({
               ? 'bg-gray-200'
               : ''
             } cursor-pointer py-4 transition duration-200 flex items-center justify-center ease-in-out hover:bg-slate-50 rounded-md top-2 left-0 z-10 px-10
-           bg-white/30 border backdrop-blur-sm shadow-sm`}
+           bg-white/30 border shadow-sm`}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();

@@ -139,7 +139,7 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
 
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-        className="fixed bottom-0 w-full max-w-[300px] sm:max-w-[400px] md:max-w-2xl z-50 pb-10"
+        className="fixed bottom-0 w-1/2 z-50 pb-10"
       >
         <div className="flex flex-row items-center h-fit mb-4">
           <textarea
@@ -183,7 +183,7 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
         <div className="flex flex-col items-center bg-white/80 backdrop-blur-lg border border-gray-300 rounded shadow-md">
           <button
             onClick={toggleOpen}
-            className={`flex flex-row items-center justify-center font-normal cursor-pointer w-full p-2 gap-1 transition duration-200 ease-in-out hover:bg-slate-50 border-b`}
+            className={`flex lg:flex-row items-center justify-center font-normal cursor-pointer w-full p-2 gap-1 transition duration-200 ease-in-out hover:bg-slate-50 border-b md:flex-col`}
           >
             <span className="text-gray-500 text-sm">
               Your Documents
@@ -198,9 +198,9 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
               )}
             </span>
 
-              <div className="p-2 max-h-[120px] overflow-auto no-scrollbar">
+              <div className="p-2 w-full no-scrollbar">
                 {files.length > 0 ? (
-                  <div className="flex flex-wrap gap-x-2 gap-y-5 ">
+                  <div className="flex">
                     {files.map((file) => (
                       <FileCard
                         key={file.name}
