@@ -91,7 +91,7 @@ export default function ChatPage() {
                                 </button>
                         </div>
                     </div>
-                    <div className="flex justify-center items-center h-full ">
+                    <div className="flex justify-center items-center h-full">
                         <Chat workspace={currentWorkspace} />
                     </div>
                 </>

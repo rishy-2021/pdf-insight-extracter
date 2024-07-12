@@ -119,7 +119,7 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
         <div className={documentTrayIsOpen ? "h-[70%]" : "h-1/3"}></div>
       </div>
       {messages.length === 0 && (
-        <div className="relative flex flex-col items-center justify-center h-full">
+        <div className="relative flex flex-col  items-center md:justify-center h-full">
           {!fetchingFiles &&
             (files.length > 0 ? (
               <PromptGrid
