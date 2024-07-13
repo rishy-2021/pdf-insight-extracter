@@ -87,7 +87,6 @@ export default function ChatPage() {
                                             ${isDeleting ? 'animate-pulse' : ''}`}
                                         />
                                     </Tooltip>
-
                                 </button>
                         </div>
                     </div>

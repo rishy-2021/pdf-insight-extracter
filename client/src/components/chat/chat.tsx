@@ -107,7 +107,7 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
 
   return (
     <div className="relative flex flex-col w-full max-w-md md:max-w-2xl h-full py-24 items-center justify-start">
-      <div className={messages.length > 0 ? "h-full w-full" : "w-full"}>
+      <div className={messages.length > 0 ? "h-fit md:h-full w-full" : "w-full"}>
         {messages.map((m) => (
           <div key={m.id} className={"whitespace-pre-wrap max-w-fit w-full"}>
             <ChatMessage key={m.id} message={m} />
@@ -139,7 +139,7 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
 
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-        className="fixed px-5 md:px-0 bottom-0 md:w-1/2 z-50 pb-10"
+        className="fixed w-full px-5 md:px-0 bottom-0 md:w-1/2 z-50 pb-3 md:pb-10"
       >
         <div className="flex flex-row items-center h-fit mb-4">
           <textarea
@@ -198,7 +198,7 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
               )}
             </span>
 
-              <div className="p-2 w-full no-scrollbar">
+              <div className="p-2 sm:w-full no-scrollbar">
                 {files.length > 0 ? (
                   <div className="flex">
                     {files.map((file) => (
