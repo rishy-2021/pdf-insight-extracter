@@ -75,7 +75,7 @@ export default function ChatPage() {
                 </svg>
             ) : (currentWorkspace && currentChat &&
                 <>
-                    <div className='absolute rounded-md top-2 left-0 z-50 p-2 px-10 bg-white/60 border border-separate backdrop-blur-sm'>
+                    <div className='absolute rounded-md top-2 md:left-0 z-50 p-2 px-10 bg-white/60 border border-separate backdrop-blur-sm'>
                         <div className='flex flex-row gap-5 align-middle items-center'>
                             <ChatTitle workspace={currentWorkspace} />
                                 <button

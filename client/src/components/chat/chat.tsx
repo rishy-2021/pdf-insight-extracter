@@ -139,12 +139,12 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
 
       <form
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
-        className="fixed bottom-0 w-1/2 z-50 pb-10"
+        className="fixed px-5 md:px-0 bottom-0 md:w-1/2 z-50 pb-10"
       >
         <div className="flex flex-row items-center h-fit mb-4">
           <textarea
             className={
-              "p-4 px-5 border border-gray-300 bg-white/80 text-black rounded flex-grow backdrop-blur-lg shadow-md overflow-y-auto resize-none " +
+              "p-3 md:p-4 px-5 border border-gray-300 bg-white/80 text-black rounded flex-grow backdrop-blur-lg shadow-md overflow-y-auto resize-none " +
               (isLoading ? "cursor-not-allowed" : "cursor-text")
             }
             value={input}
@@ -183,7 +183,7 @@ export default function Chat({ workspace }: { workspace: Workspace }) {
         <div className="flex flex-col items-center bg-white/80 backdrop-blur-lg border border-gray-300 rounded shadow-md">
           <button
             onClick={toggleOpen}
-            className={`flex lg:flex-row items-center justify-center font-normal cursor-pointer w-full p-2 gap-1 transition duration-200 ease-in-out hover:bg-slate-50 border-b md:flex-col`}
+            className={`flex flex-col lg:flex-row items-center justify-center font-normal cursor-pointer w-full p-2 gap-1 transition duration-200 ease-in-out hover:bg-slate-50 border-b md:flex-col`}
           >
             <span className="text-gray-500 text-sm">
               Your Documents
